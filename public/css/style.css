@@ -1,21 +1,14 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-}
 
 .posts {
-  margin: auto
+  text-align: center;
 }
 
 .post-title {
-  margin: auto;
   font-size: 16px;
   color: #3cb371
 }
 
 .post-body {
-  margin: auto; 
   font-size: 12px;
   color: #4A4A4A
 }

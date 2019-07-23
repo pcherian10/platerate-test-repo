@@ -1,6 +1,7 @@
-<div class="posts">
-    <% for( let key in posts) { %>
-        <p class="post-title"><%= posts[key].title %></p>
-        <p class="post-body"><%= posts[key].body %></p>    
-    <% } %>
-</div>
+<ol class="posts">
+    <% posts.forEach ( (post, index) => { %>
+        <li class="post-title"><%= index + 1 %>. <%= post.title %></li>
+        <li class="post-body"><%= post.body %></li>
+        <br>    
+    <% }) %>
+</ol>

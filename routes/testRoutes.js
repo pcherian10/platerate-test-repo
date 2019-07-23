@@ -15,7 +15,8 @@ module.exports = app => {
       }
     getPostData().then(posts => {
     //Only the title and body of all the posts should be displayed in an centered and ordered HTML list on the DOM
-    res.render('posts', {posts})
+      console.log(posts)
+      res.render('posts', { posts })
     })
   })
 

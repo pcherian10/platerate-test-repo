@@ -1,1 +1,6 @@
-<h1> this is the posts view. <%= posts %> </h1>
+<div class="posts">
+    <% for( let key in posts) { %>
+        <p class="post-title"><%= posts[key].title %></p>
+        <p class="post-body"><%= posts[key].body %></p>    
+    <% } %>
+</div>

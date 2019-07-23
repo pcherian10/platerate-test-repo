@@ -1,6 +1,5 @@
 'use strict'
 const axios = require('axios')
-const ejs = require('ejs')
 
 module.exports = app => {
   app.get('/', (req, res) => {
@@ -21,7 +20,9 @@ module.exports = app => {
 
   app.get('/aboutme', (req, res) => {
     let { q } = req.query
-    q.toString().toLowerCase()
+    if ( q ) {
+      q.toString().toLowerCase()
+    }
     console.log(q)
     const answers = [
       { question: "Tell me about yourself", answer: "I'm a full stack engineer with a background in finance and photography." },
@@ -30,9 +31,6 @@ module.exports = app => {
       { question: "What are your favorite hobbies?", answer: "photography and gadget shopping"}
     ]
     let data = [];
-
-
-
 
     if ( q === "description" ) {
       data.push(answers[0]);
@@ -50,4 +48,9 @@ module.exports = app => {
     res.render('aboutme', { data })
 
   })
+
+  app.get('*', (req, res) => {
+    res.render('invalid')
+  })
+
 }

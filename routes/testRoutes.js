@@ -3,10 +3,8 @@ const ejs = require('ejs')
 
 module.exports = app => {
   app.get('/', (req, res) => {
-    people = ['geddy', 'neil', 'alex'],
-    html = ejs.render('<%= people.join(", "); %>', {people: people});
 
-    res.send(html)
+    res.render('index')
    })
 
   app.get('/posts', (req, res) => {
@@ -15,7 +13,11 @@ module.exports = app => {
               .then(res => res.data)
               .catch(err => console.log(err))
       }
-    getPostData().then(data => res.send(data))
+    getPostData().then(data => {
+    //Only the title and body of all the posts should be displayed in an centered and ordered HTML list on the DOM
+    data.map( elem => { elem.title, elem.body })
+    res.render('index', {data})
+    })
   })
 
   app.get('/aboutme', (req, res) => {

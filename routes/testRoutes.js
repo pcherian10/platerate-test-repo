@@ -4,7 +4,7 @@ const ejs = require('ejs')
 module.exports = app => {
   app.get('/', (req, res) => {
 
-    res.render('index')
+    res.render('home')
    })
 
   app.get('/posts', (req, res) => {
@@ -13,10 +13,9 @@ module.exports = app => {
               .then(res => res.data)
               .catch(err => console.log(err))
       }
-    getPostData().then(data => {
+    getPostData().then(posts => {
     //Only the title and body of all the posts should be displayed in an centered and ordered HTML list on the DOM
-    data.map( elem => { elem.title, elem.body })
-    res.render('index', {data})
+    res.render('posts', {posts})
     })
   })
 
@@ -26,6 +25,6 @@ module.exports = app => {
     console.log(tech)
     console.log(techstack)
     console.log(hobbies)
-
+    res.render('/aboutme')
   })
 }

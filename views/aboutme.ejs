@@ -1,1 +1,7 @@
-<h1> This is a child about me view</h1>
+<ol class="posts">
+    <% data.forEach ( (data, index) => { %>
+        <li class="post-title"><%= index + 1 %>. <%= data.question %></li>
+        <li class="post-body"><%= data.answer %></li>
+        <br>    
+    <% }) %>
+</ol>
